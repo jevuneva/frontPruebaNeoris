@@ -1,0 +1,66 @@
+<h1>Movimientos</h1>
+
+<form class="registration" [formGroup]="formData" >
+  <table>
+    <tr>
+      <td> 
+        <label>Tipo de Cuenta:</label>
+        <select formControlName="typeAccount"  name="select">
+          <option value="Ahorro">Ahorro</option>
+          <option value="Corriente">Corriente</option>
+        </select>    
+      </td>
+      <td>
+        <label>Nro de Cuenta:</label>
+        <input formControlName="nroAccount" type="text"  >  
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Tipo de Movimiento:</label>
+        <select formControlName="typeMove"  name="select">
+          <option value="Retiro">Retiro</option>
+          <option value="Deposito">Deposito</option>
+        </select>
+      </td>
+      <td>  
+        <label>Valor:</label>
+        <input formControlName="value" type="number" >      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>saldo:</label>
+        <input formControlName="balance" type="number"> 
+      </td>
+    </tr>
+    <tr>
+      <button type="button"  (click)="onGuardar(1)">Guardar</button>
+      <button type="button"  [disabled]="formData.invalid" (click)="onGuardar(2)">Editar</button>
+    </tr>
+  </table>
+ </form>
+
+    <table class="tableStile1">
+      <thead>
+        <tr>
+          <th>Nro de Cuenta</th>
+          <th>Tipo de Cuenta</th>
+          <th>Movimiento</th>    
+          <th>Saldo</th>   
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let item of listData" >
+            
+          <td>{{item.account.nroAccount}}</td>
+          <td>{{item.account.typeAccount}}</td>
+          <td>{{item.typeMove}} {{item.value}}</td>
+          <td>{{item.balance}}</td>
+          
+      </tr>
+      </tbody>
+    </table>
+    
+    
+    

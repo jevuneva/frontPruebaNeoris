@@ -1,0 +1,27 @@
+<h1>Reportes</h1>
+<form class="registration" [formGroup]="formData" >
+    <table>
+      <tr>
+        <td>
+          <label>Cliente:</label>
+          <input formControlName="client" type="text"  >  
+        </td>
+      </tr>
+      <tr>
+        <td>  
+          <label>Fecha Inicial:</label>
+          <input formControlName="fechaIni" type="text" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" >     
+        </td>
+        <td>
+            <label>Fecha Final:</label>
+            <input formControlName="fechafin" type="text" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+        </td>
+      </tr>
+      <tr>
+        <button type="button"  [disabled]="formData.invalid" (click)="onAceptar()">Aceptar</button>
+        <button type="button"  [disabled]="formData.invalid" (click)="onPDF()">Generar PDF</button>
+      </tr>
+    </table>
+   </form>
+
+   <textarea rows="20" cols="80" >{{respon}}</textarea>

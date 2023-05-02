@@ -1,0 +1,69 @@
+<h1>Cuentas</h1>
+
+<form class="registration" [formGroup]="formData" >
+  <table>
+    <tr>
+      <td>
+        <label>Cliente:</label>
+        <input formControlName="client" type="text"  >  
+      </td>
+    </tr>
+    <tr>
+      <td>  
+        <label>Nro de Cuenta:</label>
+        <input formControlName="nroAccount" type="text"  >     
+      </td>
+      <td>
+        <label>Tipo de Cuenta:</label>
+        <select formControlName="typeAccount"  name="select">
+          <option value="Ahorro">Ahorro</option>
+          <option value="Corriente">Corriente</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>  
+        <label>Saldo:</label>
+        <input formControlName="initBalance" type="number" >      
+      </td>
+      <td>
+        <label>Estado</label>
+      <input formControlName="status" type="checkbox" >
+      </td>
+    </tr>
+    <tr>
+      <button type="button"  [disabled]="formData.invalid" (click)="onGuardar(1)">Guardar</button>
+      <button type="button"  [disabled]="formData.invalid" (click)="onGuardar(2)">Editar</button>
+    </tr>
+  </table>
+ </form>
+
+    <table class="tableStile1">
+      <thead>
+        <tr>
+          <th>Nro de Cuenta</th>
+          <th>Tipo de Cuenta</th>
+          <th>Saldo</th>
+          <th>Estado</th>
+          <th>Accion</th>          
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let item of listData" >
+            
+          <td>{{item.nroAccount}}</td>
+          <td>{{item.typeAccount}}</td>
+          <td>{{item.initBalance}}</td>
+          <td>{{item.status}}</td>
+          <td><button (click)="onEditar(item)" type="button">
+              Editar</button>
+              <button (click)="onEditar(item)" type="button">
+                Eliminar</button>
+          </td>
+          
+      </tr>
+      </tbody>
+    </table>
+    
+    
+    

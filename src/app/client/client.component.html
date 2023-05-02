@@ -1,0 +1,84 @@
+<h1>Hello clientes</h1>
+
+<form class="registration" [formGroup]="formData" >
+  <table>
+    <tr>
+      <td>  
+        <label class="pure-material-textfield-outlined">identificacion:</label>
+        <input formControlName="identificacion" type="text"  >      
+      </td>
+      <td>
+        <label>Nombre:</label>
+        <input formControlName="nombre" type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>  
+        <label>genero:</label>
+        <input formControlName="genero" type="text" >      
+      </td>
+      <td>
+        <label>edad:</label>
+        <input formControlName="edad" type="number" >
+      </td>
+    </tr>
+    <tr>
+      <td>  
+        <label >password:</label>
+        <input formControlName="password" type="text" >      
+      </td>
+      <td>
+        <label>telefono:</label>
+        <input formControlName="telefono" type="text" >
+      </td>
+    </tr>
+    <tr>
+      <td>    
+        <label>direccion:</label>
+        <input formControlName="direccion" type="text" >    
+      </td>
+    </tr>
+    <tr>
+      <label>Activo</label>
+      <input formControlName="status" type="checkbox" >
+    </tr>
+    <tr>
+      <button type="button"  [disabled]="formData.invalid" (click)="onGuardar(1)">Guardar</button>
+      <button type="button"  [disabled]="formData.invalid" (click)="onGuardar(2)">Editar</button>
+    </tr>
+  </table>
+ </form>
+
+    <table class="tableStile1">
+      <thead>
+        <tr>
+          <th>Identificacion</th>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Teléfono</th>
+          <th>Contraseña</th>
+          <th>Estado</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let item of listData" >
+            
+          <td>{{item.identificacion}}</td>
+          <td>{{item.nombre}}</td>
+          <td>{{item.direccion}}</td>
+          <td>{{item.telefono}}</td>
+          <td>{{item.password}}</td>
+          <td>{{item.status}}</td>
+          <td><button (click)="onEditar(item)" type="button">
+              Editar</button>
+              <button (click)="onEditar(item)" type="button">
+                Eliminar</button>
+          </td>
+          
+      </tr>
+      </tbody>
+    </table>
+    
+    
+    
